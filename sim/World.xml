@@ -1,0 +1,16 @@
+<WorldMap name="World">
+	<Territory name="T1">
+		<Troops>1</Troops>
+		<Continent>C1</Continent>
+		<Neighbours>
+			<Territory name="T2"/>
+		</Neighbours>
+	</Territory>
+	<Territory name="T2">
+		<Troops>1</Troops>
+		<Continent>C1</Continent>
+		<Neighbours>
+			<Territory name="T1"/>
+		</Neighbours>
+	</Territory>
+</WorldMap>
