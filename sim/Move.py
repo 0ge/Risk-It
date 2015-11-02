@@ -7,6 +7,12 @@ class Move(object):
         self.origin = None
         self.quantity = 0
         self.target = None
+        
+class TradeCards(Move):
+    
+    def __init__(self, cards):
+        super.__init__()
+        self.cards = cards
     
 class Reinforce(Move):
     

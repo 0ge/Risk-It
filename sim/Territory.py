@@ -5,6 +5,7 @@ class Territory(object):
         self.neighbours = []
         self.troops = 1
         self.continent = ''
+        self.owner = None
     
     def is_neighbour_of(self, neighbour):
         
