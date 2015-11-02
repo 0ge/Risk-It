@@ -1,14 +1,18 @@
 import Player
+import Move
+import MoveValidator
+import MoveExecutor
+import copy
 
-class Simulator:
+class Simulator(object):
     
-    max_turns = 100
-    max_player_tries = 3
-    world_map = None
-    players = []
+    def __init__(self):
     
-    def init(self):
-        players.add(Player())
+        self.max_turns = 100
+        self.max_player_tries = 3
+        self.world_map = None
+        self.players = []
+        self.players.append(Player.Player())
     
     def restore_player(self, old_player, new_player):
         
@@ -51,8 +55,8 @@ class Simulator:
 
         player_tries = 0
         
-        player_copy = player.copy()
-        move = player.do_turn(world_map)
+        player_copy = copy.deepcopy(player)
+        move = player.do_turn(self.world_map)
         
         # Make moves until player is finished or failed to make valid move
         while move is not None and tries < max_player_tries:
@@ -65,10 +69,14 @@ class Simulator:
                 player_tries += 1
             
             move = player.do_turn(world_map)
+            
+    def is_valid_move(self, move):
+        
+        return MoveValidator.MoveValidator.valid_move(self.map, move)
                 
     def execute_move(self, move):
         
-        print "Executing move..."
+        MoveExecutor.MoveExecutor.execute_move(self.map, move)
     
 
 sim = Simulator()

@@ -1,9 +1,10 @@
-class Player:
+class Player(object):
     
-    cards = []
-    reinforcements = 0
+    def __init__(self):
+        self.cards = []
+        self.reinforcements = 0
     
     def do_turn(self, map):
         
-        # World
+        #TODO: Implement standard behaviour
         return None

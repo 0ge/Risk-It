@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import Territory
 
-class WorldMap:
+class WorldMap(object):
     
     name = ""
     territories = []

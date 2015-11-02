@@ -1,4 +1,4 @@
-class Territory:
+class Territory(object):
     
     def __init__(self):
         self.name = ''
@@ -8,6 +8,7 @@ class Territory:
     
     def is_neighbour_of(self, neighbour):
         
+        #TODO: Implement
         return False
         
     def description(self):
