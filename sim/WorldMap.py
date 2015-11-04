@@ -19,7 +19,15 @@ class WorldMap(object):
             if t.name == name:
                 return t
             
+    def get_territories_for_player(self, player):
         
+        found_territories = []
+        
+        for territory in self.territories:
+            if territory.owner is player:
+                found_territories.append(territory)
+                
+        return found_territories
         
     def read_map_file(self, file):
         tree = ET.parse(file)
@@ -31,7 +39,7 @@ class WorldMap(object):
         for territory in root:
             t = Territory.Territory()
             t.name = territory.get('name')
-            t.troops = territory.find('Troops').text
+            t.troops = int(territory.find('Troops').text)
             t.continent = territory.find('Continent').text
             self.territories.append(t)
             

@@ -3,25 +3,41 @@ import Move
 
 class MoveValidator(object):
         
-    def valid_move(self, map, move, player):
+    def valid_move(self, game_map, move):
         
-        self._map = map
+        self._map = game_map
         self._move = move
-        self._player = player
         
         # If there are reinforcements, these must be placed, or cards must be played
-        if player.reinforcements > 0:
-            if move.__class__ is not Reinforce and move.__class__ is not TradeCards:
+        if self._move.player.reinforcements > 0:
+            if move.__class__ is not Move.Reinforce and move.__class__ is not Move.TradeCards:
+                self.msg = "Player still has reinforcements and did not move or trade cards."
                 return False
         
-        if move.__class__ is Reinforce:
-            return is_valid_reinforce()
+        if move.__class__ is Move.EndMove:
+            return self.is_valid_end_move()
+            
+        if move.__class__ is Move.Reinforce:
+            return self.is_valid_reinforce()
         
-        if move.__class__ is AttackMove:
-            return is_valid_attack_move()
+        if move.__class__ is Move.AttackMove:
+            return self.is_valid_attack_move()
         
-        if move.__class__ is TacticalMove:
-            return is_valid_tactical_move()
+        if move.__class__ is Move.TacticalMove:
+            return self.is_valid_tactical_move()
+        
+    def is_valid_end_move(self):
+        
+        # The player can end it's turn if it has reinforcements or more than 4 cards
+        if self._move.player.reinforcements > 0:
+            self.msg = "Player tried to end turn but has " + str(self._move.player.reinforcements) + " reinforcements left."
+            return False
+            
+        if len(self._move.player.cards) > 4:
+            self.msg = "Player tried to end turn but has " + str(len(self._move.player.cards)) + " cards."
+            return False
+            
+        return True
         
     def is_valid_reinforce(self):
     
@@ -29,10 +45,10 @@ class MoveValidator(object):
         # - Territory must be owned by player
         # - Must not place more reinforcement than player has
         
-        if self._move.origin.owner is not self._player:
+        if self._move.target.owner is not self._move.player:
             return False
             
-        if self._move.quantity > self._player.reinforcements:
+        if self._move.quantity > self._move.player.reinforcements:
             return False
             
         return True
@@ -51,10 +67,10 @@ class MoveValidator(object):
         if self._move.quantity > 3:
             return False
             
-        if self._move.origin.owner is not self._player:
+        if self._move.origin.owner is not self._move.player:
             return False
             
-        if self._move.target.owner is self._player:
+        if self._move.target.owner is self._move.player:
             return False
         
         return True
@@ -65,10 +81,10 @@ class MoveValidator(object):
         # - The target must be owned by the player
         # - At least one troop must be left behind
         
-        if self._move.target.owner is not self._player:
+        if self._move.target.owner is not self._move.player:
             return False
             
-        if self._move.quantity >= self._move.origin.troops:
+        if self._move.quantity >= self._move.target.troops:
             return False
     
         return False

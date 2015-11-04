@@ -14,6 +14,6 @@ class Territory(object):
         
     def description(self):
         
-        desc = self.name + ' (' + self.troops + '): ' + self.continent + ' <' + ','.join(x.name for x in self.neighbours) + '>'
+        desc = self.name + ' (' + str(self.troops) + '): ' + self.continent + ' <' + ','.join(x.name for x in self.neighbours) + '>'
         
         return desc
