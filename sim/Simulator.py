@@ -17,7 +17,7 @@ class Simulator(object):
     
     def __init__(self, world_map):
     
-        self.max_turns = 100
+        self.max_turns = 10
         self.max_player_tries = 3
         self.world_map = world_map
         self.players = []
@@ -133,7 +133,7 @@ class Simulator(object):
     
 
 board_map = WorldMap.WorldMap()
-board_map.read_map_file('World.xml')
+board_map.read_map_file('LargeWorld.xml')
 sim = Simulator(board_map)
 sim.run()
 print sim.world_map.description()

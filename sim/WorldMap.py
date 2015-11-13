@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 import Territory
+import sys
 
 class WorldMap(object):
     
@@ -7,12 +8,21 @@ class WorldMap(object):
     territories = []
     
     def is_valid(self):
-        
-        # Should check that each terroritories neighbours
-        # are also has the territory as neighbour.
-        
-        return False
-        
+
+        names = []
+        for t in self.territories:
+            names.append(t.name)
+            for n in t.neighbours:
+                correct = False
+                for nn in n.neighbours:
+                    if nn.name == t.name:
+                        correct = True
+
+                if not correct:
+                    print 'Map error: ' + n.name + ' does not list '\
+                          + t.name + ' as a neighbour!'
+                    sys.exit(1)
+
     def get_territory_for_name(self, name):
         
         for t in self.territories:
@@ -50,6 +60,8 @@ class WorldMap(object):
                 n = self.get_territory_for_name(neighbour.get('name'))
                 print 'Adding ' + n.name + ' to ' + t.name
                 t.neighbours.append(n)
+
+        self.is_valid()
         
     def description(self):
         
