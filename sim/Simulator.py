@@ -133,7 +133,7 @@ class Simulator(object):
     
 
 board_map = WorldMap.WorldMap()
-board_map.read_map_file('LargeWorld.xml')
+board_map.read_map_file('World.xml')
 sim = Simulator(board_map)
 sim.run()
 print sim.world_map.description()

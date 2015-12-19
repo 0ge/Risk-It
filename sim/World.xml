@@ -1,16 +1,451 @@
 <WorldMap name="World">
-	<Territory name="T1">
+	<Territory name="Alaska">
 		<Troops>1</Troops>
-		<Continent>C1</Continent>
 		<Neighbours>
-			<Territory name="T2"/>
+			<Territory name="Northwest Territory"/>
+            <Territory name="Alberta"/>
+            <Territory name="Kamchatka"/>
 		</Neighbours>
 	</Territory>
-	<Territory name="T2">
+	<Territory name="Northwest Territory">
 		<Troops>1</Troops>
-		<Continent>C1</Continent>
 		<Neighbours>
-			<Territory name="T1"/>
+			<Territory name="Alaska"/>
+            <Territory name="Alberta"/>
+            <Territory name="Ontario"/>
+            <Territory name="Greenland"/>
 		</Neighbours>
 	</Territory>
+    <Territory name="Greenland">
+		<Troops>1</Troops>
+		<Neighbours>
+			<Territory name="Iceland"/>
+            <Territory name="Northwest Territory"/>
+            <Territory name="Ontario"/>
+            <Territory name="Quebec"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Alberta">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Alaska"/>
+            <Territory name="Northwest Territory"/>
+            <Territory name="Ontario"/>
+            <Territory name="Western United States"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Ontario">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Alberta"/>
+            <Territory name="Northwest Territory"/>
+            <Territory name="Greenland"/>
+            <Territory name="Quebec"/>
+            <Territory name="Western United States"/>
+            <Territory name="Eastern United States"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Quebec">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Ontario"/>
+            <Territory name="Greenland"/>
+            <Territory name="Eastern United States"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Western United States">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Alberta"/>
+            <Territory name="Ontario"/>
+            <Territory name="Eastern United States"/>
+            <Territory name="Central America"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Eastern United States">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Western United States"/>
+            <Territory name="Quebec"/>
+            <Territory name="Ontario"/>
+            <Territory name="Central America"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Central America">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Western United States"/>
+            <Territory name="Eastern United States"/>
+            <Territory name="Venezuela"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Venezuela">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Central America"/>
+            <Territory name="Peru"/>
+            <Territory name="Brazil"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Peru">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Venezuela"/>
+            <Territory name="Brazil"/>
+            <Territory name="Argentina"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Brazil">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Venezuela"/>
+            <Territory name="North Africa"/>
+            <Territory name="Peru"/>
+            <Territory name="Argentina"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Argentina">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Peru"/>
+            <Territory name="Brazil"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Iceland">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Greenland"/>
+            <Territory name="Scandinavia"/>
+            <Territory name="Great Britain"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Scandinavia">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Iceland"/>
+            <Territory name="Ukraine"/>
+            <Territory name="Northern Europe"/>
+            <Territory name="Great Britain"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Great Britain">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Iceland"/>
+            <Territory name="Scandinavia"/>
+            <Territory name="Northern Europe"/>
+            <Territory name="Western Europe"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Northern Europe">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Great Britain"/>
+            <Territory name="Scandinavia"/>
+            <Territory name="Ukraine"/>
+            <Territory name="Southern Europe"/>
+            <Territory name="Western Europe"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Ukraine">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Scandinavia"/>
+            <Territory name="Ural"/>
+            <Territory name="Afghanistan"/>
+            <Territory name="Middle East"/>
+            <Territory name="Southern Europe"/>
+            <Territory name="Northern Europe"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Western Europe">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Great Britain"/>
+            <Territory name="Northern Europe"/>
+            <Territory name="Southern Europe"/>
+            <Territory name="North Africa"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Southern Europe">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Western Europe"/>
+            <Territory name="Northern Europe"/>
+            <Territory name="Ukraine"/>
+            <Territory name="Middle East"/>
+            <Territory name="Egypt"/>
+            <Territory name="North Africa"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="North Africa">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Western Europe"/>
+            <Territory name="Southern Europe"/>
+            <Territory name="Egypt"/>
+            <Territory name="East Africa"/>
+            <Territory name="Congo"/>
+            <Territory name="Brazil"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Egypt">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Southern Europe"/>
+            <Territory name="Middle East"/>
+            <Territory name="East Africa"/>
+            <Territory name="North Africa"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="East Africa">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="North Africa"/>
+            <Territory name="Egypt"/>
+            <Territory name="Middle East"/>
+            <Territory name="Madagascar"/>
+            <Territory name="South Africa"/>
+            <Territory name="Congo"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Congo">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="North Africa"/>
+            <Territory name="East Africa"/>
+            <Territory name="South Africa"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="South Africa">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Congo"/>
+            <Territory name="East Africa"/>
+            <Territory name="Madagascar"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Madagascar">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="East Africa"/>
+            <Territory name="South Africa"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Ural">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Ukraine"/>
+            <Territory name="Siberia"/>
+            <Territory name="China"/>
+            <Territory name="Afghanistan"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Siberia">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Ural"/>
+            <Territory name="Yakutsk"/>
+            <Territory name="Irkutsk"/>
+            <Territory name="Mongolia"/>
+            <Territory name="China"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Yakutsk">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Siberia"/>
+            <Territory name="Kamchatka"/>
+            <Territory name="Irkutsk"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Kamchatka">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Yakutsk"/>
+            <Territory name="Alaska"/>
+            <Territory name="Japan"/>
+            <Territory name="Mongolia"/>
+            <Territory name="Irkutsk"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Irkutsk">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Siberia"/>
+            <Territory name="Yakutsk"/>
+            <Territory name="Kamchatka"/>
+            <Territory name="Mongolia"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Mongolia">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Siberia"/>
+            <Territory name="Irkutsk"/>
+            <Territory name="Japan"/>
+            <Territory name="China"/>
+            <Territory name="Kamchatka"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Japan">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Mongolia"/>
+            <Territory name="Kamchatka"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Afghanistan">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Ukraine"/>
+            <Territory name="Ural"/>
+            <Territory name="China"/>
+            <Territory name="India"/>
+            <Territory name="Middle East"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="China">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Afghanistan"/>
+            <Territory name="Ural"/>
+            <Territory name="Siberia"/>
+            <Territory name="Mongolia"/>
+            <Territory name="Siam"/>
+            <Territory name="India"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Middle East">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Egypt"/>
+            <Territory name="Southern Europe"/>
+            <Territory name="Ukraine"/>
+            <Territory name="Afghanistan"/>
+            <Territory name="India"/>
+            <Territory name="East Africa"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="India">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Middle East"/>
+            <Territory name="Afghanistan"/>
+            <Territory name="China"/>
+            <Territory name="Siam"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Siam">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="India"/>
+            <Territory name="China"/>
+            <Territory name="Indonesia"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Indonesia">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Siam"/>
+            <Territory name="New Guinea"/>
+            <Territory name="Western Australia"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="New Guinea">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Indonesia"/>
+            <Territory name="Eastern Australia"/>
+            <Territory name="Western Australia"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Eastern Australia">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="New Guinea"/>
+            <Territory name="Western Australia"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="Western Australia">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="Indonesia"/>
+            <Territory name="New Guinea"/>
+            <Territory name="Eastern Australia"/>
+		</Neighbours>
+	</Territory>
+
+    <Continent name="North America">
+		<BonusTroops>5</BonusTroops>
+        <Territories>
+            <Territory name="Alaska"/>
+            <Territory name="Northwest Territory"/>
+            <Territory name="Greenland"/>
+            <Territory name="Alberta"/>
+            <Territory name="Ontario"/>
+            <Territory name="Quebec"/>
+            <Territory name="Western United States"/>
+            <Territory name="Eastern United States"/>
+            <Territory name="Central America"/>
+		</Territories>
+	</Continent>
+    <Continent name="South America">
+		<BonusTroops>2</BonusTroops>
+        <Territories>
+            <Territory name="Venezuela"/>
+            <Territory name="Peru"/>
+            <Territory name="Brazil"/>
+            <Territory name="Argentina"/>
+		</Territories>
+	</Continent>
+    <Continent name="Europe">
+		<BonusTroops>5</BonusTroops>
+        <Territories>
+            <Territory name="Iceland"/>
+            <Territory name="Scandinavia"/>
+            <Territory name="Great Britain"/>
+            <Territory name="Ukraine"/>
+            <Territory name="Northern Europe"/>
+            <Territory name="Western Europe"/>
+            <Territory name="Southern Europe"/>
+		</Territories>
+	</Continent>
+    <Continent name="Africa">
+		<BonusTroops>3</BonusTroops>
+        <Territories>
+            <Territory name="North Africa"/>
+            <Territory name="Egypt"/>
+            <Territory name="Congo"/>
+            <Territory name="East Africa"/>
+            <Territory name="South Africa"/>
+            <Territory name="Madagascar"/>
+		</Territories>
+	</Continent>
+    <Continent name="Asia">
+		<BonusTroops>7</BonusTroops>
+        <Territories>
+            <Territory name="Ural"/>
+            <Territory name="Siberia"/>
+            <Territory name="Yakutsk"/>
+            <Territory name="Kamchatka"/>
+            <Territory name="Irkutsk"/>
+            <Territory name="Mongolia"/>
+            <Territory name="Japan"/>
+            <Territory name="Afghanistan"/>
+            <Territory name="China"/>
+            <Territory name="Middle East"/>
+            <Territory name="India"/>
+            <Territory name="Siam"/>
+		</Territories>
+	</Continent>
+    <Continent name="Australia">
+		<BonusTroops>2</BonusTroops>
+        <Territories>
+            <Territory name="Indonesia"/>
+            <Territory name="New Guinea"/>
+            <Territory name="Eastern Australia"/>
+            <Territory name="Western Australia"/>
+		</Territories>
+	</Continent>
 </WorldMap>
