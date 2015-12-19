@@ -4,7 +4,6 @@ class Territory(object):
         self.name = ''
         self.neighbours = []
         self.troops = 1
-        self.continent = ''
         self.owner = None
     
     def is_neighbour_of(self, neighbour):
@@ -14,6 +13,6 @@ class Territory(object):
         
     def description(self):
         
-        desc = self.name + ' (' + str(self.troops) + '): ' + self.continent + ' <' + ','.join(x.name for x in self.neighbours) + '>'
+        desc = self.name + ' (' + str(self.troops) + '):  <' + ','.join(x.name for x in self.neighbours) + '>'
         
         return desc
