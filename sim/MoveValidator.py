@@ -46,9 +46,11 @@ class MoveValidator(object):
         # - Must not place more reinforcement than player has
         
         if self._move.target.owner is not self._move.player:
+            self.msg = "Player tried to reinforce territory not under players control."
             return False
             
         if self._move.quantity > self._move.player.reinforcements:
+            self.msg = "Player tried to reinforce with " + str(self.quantity) + " troops but has only " + str(self._move.player.reinforcements) + " troops available."
             return False
             
         return True
@@ -62,15 +64,23 @@ class MoveValidator(object):
         # - The target's owner must not be the attacker
         
         if  self._move.quantity >= self._move.origin.troops:
+            self.msg = "Player tried to attack with " + str(self._move.quantity) + " troops with only " + str(self._move.origin.troops) + " troops in originating territory."
             return False
             
         if self._move.quantity > 3:
+            self.msg = "Player tried to attack with more than 3 troops (" + str (self._move.quantity) + ")"
+            return False
+            
+        if self._move.quantity < 1:
+            self.msg = "Player tried to attack with less than 1 troop (" + str (self._move.quantity) + ")"
             return False
             
         if self._move.origin.owner is not self._move.player:
+            self.msg = "Player tried to attack from territory " + self._move.origin.name + ", which is not under player's control."
             return False
             
         if self._move.target.owner is self._move.player:
+            self.msg = "Player tried to attack itself from territory " + self._move.origin.name + " to " + self._move.target.name + "."
             return False
         
         return True

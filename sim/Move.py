@@ -42,7 +42,7 @@ class AttackMove(Move):
         super(AttackMove, self).__init__(player)
         self.origin = origin
         self.target = target
-        self.quanity = quantity
+        self.quantity = quantity
         
     def __str__(self):
         return self.player.name + " attacked " + self.target.name + " with " + str(self.quantity) + " troops."
