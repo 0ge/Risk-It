@@ -23,6 +23,7 @@ class Simulator(object):
         self.players = []
         self.history = []
         self.number_of_turns = 0
+        self.winner = None
         
         p1 = Player.Player()
         p1.name = "Player 1"
@@ -164,10 +165,14 @@ class Simulator(object):
     def stats(self):
         
         # This will return a formatted table with some statistics about the game
-        
-        rounds_played = "Rounds played: " + str(self.number_of_turns) + "/" + str(self.max_turns)
 
-        return rounds_played
+        if self.winner is not None:
+            winner_msg = "Winner: " + self.winner.name + "\n"
+        else:
+            winner_msg = "Draw!"
+        rounds_played = "Rounds played: " + str(self.number_of_turns) + "/" + str(self.max_turns) + "\n"
+
+        return winner_msg + rounds_played
 
     def game_has_ended(self):
 
@@ -176,6 +181,7 @@ class Simulator(object):
             territories_controlled_by_player = len(self.world_map.get_territories_for_player(player))
             total_number_of_territories = len(self.world_map.territories)
             if  territories_controlled_by_player == total_number_of_territories:
+                self.winner = player
                 return True
 
         return False
