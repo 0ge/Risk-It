@@ -17,7 +17,7 @@ class Simulator(object):
     
     def __init__(self, world_map):
     
-        self.max_turns = 100
+        self.max_turns = 10
         self.max_player_tries = 3
         self.world_map = world_map
         self.players = []

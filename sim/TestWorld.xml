@@ -1,0 +1,47 @@
+<WorldMap name="LargeWorld">
+	<Territory name="T1">
+		<Troops>1</Troops>
+		<Neighbours>
+			<Territory name="T2"/>
+            <Territory name="T4"/>
+		</Neighbours>
+	</Territory>
+	<Territory name="T2">
+		<Troops>1</Troops>
+		<Neighbours>
+			<Territory name="T1"/>
+            <Territory name="T3"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="T3">
+		<Troops>1</Troops>
+		<Neighbours>
+			<Territory name="T2"/>
+            <Territory name="T4"/>
+		</Neighbours>
+	</Territory>
+    <Territory name="T4">
+		<Troops>1</Troops>
+		<Neighbours>
+            <Territory name="T3"/>
+            <Territory name="T1"/>
+		</Neighbours>
+	</Territory>
+
+    <Continent name="C1">
+		<BonusTroops>1</BonusTroops>
+        <Territories>
+            <Territory name="T1"/>
+            <Territory name="T2"/>
+		</Territories>
+	</Continent>
+    <Continent name="C2">
+		<BonusTroops>2</BonusTroops>
+        <Territories>
+            <Territory name="T3"/>
+            <Territory name="T4"/>
+		</Territories>
+	</Continent>
+
+
+</WorldMap>
