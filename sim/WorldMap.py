@@ -48,7 +48,7 @@ class WorldMap(object):
             t = self.get_territory_for_name(territory.get('name'))
             for neighbour in territory.find('Neighbours'):
                 n = self.get_territory_for_name(neighbour.get('name'))
-                print 'Adding ' + n.name + ' to ' + t.name
+                print('Adding ' + n.name + ' to ' + t.name)
                 t.neighbours.append(n)
         
     def description(self):
