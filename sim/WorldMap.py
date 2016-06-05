@@ -21,8 +21,8 @@ class WorldMap(object):
                         correct = True
 
                 if not correct:
-                    print 'Map error: ' + n.name + ' does not list '\
-                          + t.name + ' as a neighbour!'
+                    print('Map error: ' + n.name + ' does not list '\
+                          + t.name + ' as a neighbour!')
                     sys.exit(1)
 
     def is_valid_continents(self):
@@ -38,17 +38,17 @@ class WorldMap(object):
 
         a = set(territories) - set(territories_in_continents)
         if a:
-            print ", ".join(str(e) for e in a) + ' is not assigned to a continent'
+            print(", ".join(str(e) for e in a) + ' is not assigned to a continent')
             sys.exit(1)
 
         a = set(territories_in_continents) - set(territories)
         if a:
-            print ", ".join(str(e) for e in a) + ' is listed in a continent but is not a territory'
+            print(", ".join(str(e) for e in a) + ' is listed in a continent but is not a territory')
             sys.exit(1)
 
         for t in territories_in_continents:
             if territories_in_continents.count(t) > 1:
-                print t + ' occurs in several continents'
+                print(t + ' occurs in several continents')
                 sys.exit(1)
 
 
@@ -101,14 +101,14 @@ class WorldMap(object):
                 t = self.get_territory_for_name(entry.get('name'))
                 for neighbour in entry.find('Neighbours'):
                     n = self.get_territory_for_name(neighbour.get('name'))
-                    print 'Adding ' + n.name + ' to ' + t.name
+                    print('Adding ' + n.name + ' to ' + t.name)
                     t.neighbours.append(n)
 
             if entry.tag == 'Continent':
                 c = self.get_continent_for_name(entry.get('name'))
                 for territory in entry.find('Territories'):
                     t = self.get_territory_for_name(territory.get('name'))
-                    print 'Adding ' + t.name + ' to ' + c.name
+                    print('Adding ' + t.name + ' to ' + c.name)
                     c.territories.append(t)
 
 

@@ -60,7 +60,7 @@ class Player(object):
 
         if len(available_neighbours) < 1:
             print("Did not find any neighbours.")
-            return Move.EndMove()
+            return Move.EndMove(self)
 
         random_neighbour = available_neighbours[randint(0, len(available_neighbours)-1)]
         attackers = random_territory.troops - 1

@@ -13,6 +13,6 @@ class Territory(object):
         
     def description(self):
         
-        desc = self.name + ' (' + str(self.troops) + '):  <' + ','.join(x.name for x in self.neighbours) + '>'
+        desc = self.name + ' (' + self.owner.name + ', ' + str(self.troops) + '):  <' + ','.join(x.name for x in self.neighbours) + '>'
         
         return desc

@@ -58,7 +58,7 @@ class MoveExecutor(object):
         self.move.origin.troops -= attacker_losses
         self.move.target.troops -= defender_losses
 
-        print("Attacker lost " + str(attacker_losses) + " troops. Defender lost " + str(defender_losses) + " troops")
+        print("Attacker lost " + str(attacker_losses) + " troops. Defender lost " + str(defender_losses) + " troops. Dices: " + ','.join(str(x) for x in attacker_dices) + " vs " + ','.join(str(x) for x in defender_dices))
         
         # Take control
         if self.move.target.troops < 1:

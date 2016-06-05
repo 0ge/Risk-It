@@ -124,7 +124,7 @@ class Simulator(object):
             # we end its turn.
             try:
                 move = player.do_turn(self.world_map)
-            except:
+            except Exception as exception:
                 print("Player throw exception. Ending turn.")
                 move = Move.EndMove()
 
@@ -169,7 +169,7 @@ class Simulator(object):
         if self.winner is not None:
             winner_msg = "Winner: " + self.winner.name + "\n"
         else:
-            winner_msg = "Draw!"
+            winner_msg = "Draw!\n"
         rounds_played = "Rounds played: " + str(self.number_of_turns) + "/" + str(self.max_turns) + "\n"
 
         return winner_msg + rounds_played
