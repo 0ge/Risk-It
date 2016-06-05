@@ -76,7 +76,8 @@ class Simulator(object):
                 break;
             self.number_of_turns += 1
 
-            self.print_msg(self.VERBOSE, self.world_map.description());
+            for player in self.players:
+                print(player.name + " controls " + str(len(self.world_map.get_territories_for_player(player))) + " territories.\n")
         
     def do_turn(self):
         
@@ -126,7 +127,7 @@ class Simulator(object):
                 move = player.do_turn(self.world_map)
             except Exception as exception:
                 print("Player throw exception. Ending turn.")
-                move = Move.EndMove()
+                move = Move.EndMove(player)
 
             self.print_msg(self.VERBOSE, "Player " + str(player) + ": " + str(move))
 
@@ -167,12 +168,15 @@ class Simulator(object):
         # This will return a formatted table with some statistics about the game
 
         if self.winner is not None:
-            winner_msg = "Winner: " + self.winner.name + "\n"
+            output = "Winner: " + self.winner.name + "\n"
         else:
-            winner_msg = "Draw!\n"
-        rounds_played = "Rounds played: " + str(self.number_of_turns) + "/" + str(self.max_turns) + "\n"
+            output = "Draw!\n"
+        output += "Rounds played: " + str(self.number_of_turns) + "/" + str(self.max_turns) + "\n"
 
-        return winner_msg + rounds_played
+        for player in self.players:
+            output += player.name + " controls " + str(len(self.world_map.get_territories_for_player(player))) + " territories.\n"
+
+        return output
 
     def game_has_ended(self):
 

@@ -17,6 +17,25 @@ class Player(object):
         random_territory = available_territories[randint(0, len(available_territories)-1)]
 
         return random_territory
+
+    def territories_with_enemy_neighbour(self, world_map):
+        available_territories = world_map.get_territories_for_player(self)
+        valid_territories = list()
+
+        # Loop through territories and check if any of neighbour is not this player
+        for territoriy in available_territories:
+            enemy_borders = False
+            for neighbour in territoriy.neighbours:
+                if neighbour.owner is not self:
+                    enemy_borders = True
+                    break
+            if enemy_borders:
+                valid_territories.append(territoriy)
+
+        # Select territory at random
+        return valid_territories
+
+
     
     def do_turn(self, world_map):
         
@@ -45,13 +64,22 @@ class Player(object):
 
     def do_attack(self, world_map):
 
-        random_territory = self.random_controlled_territory(world_map)
+        prospect_territories = self.territories_with_enemy_neighbour(world_map)
+        selected_territory = None
+        for territory in prospect_territories:
+            if territory.troops > 1:
+                selected_territory = territory
+                break
 
         if self.has_attacked_randomly:
             print("Has already attacked randomly.")
             return Move.EndMove(self)
 
-        all_available_neighbours = random_territory.neighbours
+        if territory is None:
+            print("Player can not attack (no troops in any territory with enemy neighbour).")
+            return Move.EndMove(self)
+
+        all_available_neighbours = selected_territory.neighbours
 
         available_neighbours = []
         for neighbour in all_available_neighbours:
@@ -63,10 +91,10 @@ class Player(object):
             return Move.EndMove(self)
 
         random_neighbour = available_neighbours[randint(0, len(available_neighbours)-1)]
-        attackers = random_territory.troops - 1
+        attackers = selected_territory.troops - 1
 
         if (attackers < 1):
-            print("Less than 1 attacker - ending turn.")
+            print("Less than 1 attacker in " + selected_territory.name + " - ending turn.")
             return Move.EndMove(self)
 
         if (attackers > 3):
@@ -74,4 +102,4 @@ class Player(object):
 
         self.has_attacked_randomly = True
 
-        return Move.AttackMove(self, random_territory, random_neighbour, attackers)
+        return Move.AttackMove(self, selected_territory, random_neighbour, attackers)
