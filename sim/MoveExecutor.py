@@ -51,9 +51,9 @@ class MoveExecutor(object):
             attacker_wins = attacker_dices[i] > defender_dices[i]
             
             if attacker_wins:
-                attacker_losses += 1
+                defender_losses+= 1
             else:
-                defender_losses += 1
+                attacker_losses  += 1
                 
         self.move.origin.troops -= attacker_losses
         self.move.target.troops -= defender_losses
